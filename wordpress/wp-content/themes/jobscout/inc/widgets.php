@@ -47,6 +47,10 @@ function jobscout_widgets_init(){
             'name'        => __( 'Footer Four', 'jobscout' ),
             'id'          => 'footer-four', 
             'description' => __( 'Add footer four widgets here.', 'jobscout' ),
+        ),'footer-five'=> array(
+            'name'        => __( 'Footer Five', 'jobscout' ),
+            'id'          => 'footer-five', 
+            'description' => __( 'Add footer five widgets here.', 'jobscout' ),
         )
     );
     

@@ -24,7 +24,7 @@
      * @hooked jobscout_footer_bottom - 40
      * @hooked jobscout_footer_end    - 50
     */
-    // do_action( 'jobscout_footer' );
+    do_action( 'jobscout_footer' );
     
     // /**
     //  * After Footer
@@ -61,7 +61,7 @@ foreach ($categories as $category) {
                             // echo $category->term_id . ' - ' . $category->name . ' - ' . $category->slug . '<br>';
 
                         ?>
-                            <li><a href="http://wordpress.local/index.php/category<?php echo $category->slug ?>"><i class="fa fa-angle-double-right"></i><?php echo $category->name ?></a></li>
+                            <li><a href="http://wordpress.local/index.php/category/<?php echo $category->slug ?>"><i class="fa fa-angle-double-right"></i><?php echo $category->name ?></a></li>
                         <?php
                         }
                         ?>
