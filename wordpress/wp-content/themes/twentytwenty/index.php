@@ -23,6 +23,17 @@ get_header();
 		<div class="post-list">
 			<?php while (have_posts()) : the_post(); ?>
 				<div class="post-item">
+					<div class="post-image"><!-- Cột trái: Hình ảnh -->
+						<div class="post-thumbnail">
+							<?php
+							if (has_post_thumbnail()) {
+								the_post_thumbnail('medium');
+							} else {
+								echo '<img src="' . get_template_directory_uri() . '/assets/images/default-thumbnail.jpg" alt="Default Thumbnail">';
+							}
+							?>
+						</div>
+					</div>
 					<div class="post-date">
 						<span class="day"><?php echo get_the_date('d'); ?></span>
 						<span class="month"><?php echo get_the_date('F'); ?></span>
@@ -48,13 +59,18 @@ get_header();
 </main>
 <style>
 	#site-content {
-		display: flex;
-		justify-content: center;
+		margin-top: 10px;
 	}
 
 	.post-list {
-		max-width: 500px;
-		margin: 0 20%;
+		width: 80%;
+		margin: 0 auto;
+	}
+
+	.post-image {
+		margin: 0 15px;
+		max-width: 100%;
+		height: auto;
 	}
 
 	.post-item {
@@ -64,7 +80,7 @@ get_header();
 		margin-bottom: 24px;
 		background-color: #fff;
 		font-family: Arial, sans-serif;
-		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+		box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 		border-radius: 8px;
 	}
 
@@ -93,6 +109,7 @@ get_header();
 
 	.post-info {
 		flex: 1;
+		align-self: start;
 	}
 
 	.post-title {
@@ -116,6 +133,27 @@ get_header();
 		color: #666;
 		margin: 0;
 		line-height: 1.6;
+	}
+
+	@media (max-width: 768px) {
+		.post-item {
+			flex-direction: column;
+			text-align: center;
+		}
+
+		.post-image {
+			margin-bottom: 16px;
+		}
+
+		.post-date {
+			margin-right: 0;
+			border-right: none;
+			margin-bottom: 16px;
+		}
+
+		.post-info {
+			text-align: left;
+		}
 	}
 </style>
 <?php get_template_part('template-parts/footer-menus-widgets'); ?>
